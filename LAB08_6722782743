@@ -1,0 +1,117 @@
+# ===== Q1 =====
+s = input("Input: ")
+words = s.lower().split()
+f = {}
+for word in words:
+    f[word] = f.get(word, 0) + 1
+max_f = max(f.values())
+most_frequent_words = {word: count for word, count in f.items() if count == max_f}
+print("Output: ")
+for word, count in most_frequent_words.items():
+    print("%s = %s" %(word,count))
+# ===== Q2 =====
+inp = input("Input: ").split()
+count = {}
+for num in inp:
+    if num.isnumeric():  
+        num = int(num) 
+        if num in count:
+            count[num] += 1 
+        else:
+            count[num] = 1 
+is_good = True
+for num, o in count.items():
+    if o != num:  
+        is_good = False
+        break
+if is_good == True:
+    print("good sequence")
+else:
+    print("not good sequence")
+# ===== Q3 =====
+k = []
+z = []
+a = input("Input sequence1: ").split()
+b = input("Input sequence2: ").split()
+for i in a :
+    if i.isnumeric() :
+        k.append(i)
+for j in b :
+    if j.isnumeric() :
+        z.append(j)
+z = set(z)
+k = set(k)
+if set(k) == set(z) :
+    print("Output: same set")
+else :
+    print("Output: different set")
+# ===== Q4 =====
+from operator import itemgetter
+x = ""
+d = {}
+while x != "DONE" :
+    x = input("Input (DONE = exit): ")
+    if x != "DONE" :
+        try :
+            a,b = x.split()
+            if not a.isnumeric() :
+                print("Invalid input")
+            elif a in d:
+                print("Duplicated ID")
+            else :
+                d[a] = int(b)
+        except:
+            print("Invalid input")
+print("Output: ")
+k = sorted(d.items(),key=itemgetter(1),reverse=True)
+k = dict(k)
+for i,v in k.items():
+    print(i,v)
+# ===== Q5 =====
+n = input("Input a sentence:").split()
+d = {}
+for i in n :
+    if i.isalpha(): 
+        i = i.lower()  
+        if i in d:
+            d[i] += 1 
+        else:
+            d[i] = 1 
+print("Output:")
+for i, o in d.items():
+    if o > 1:  
+        print(i)
+# ===== Q6 =====
+x = ""
+d = {}
+while x != "DONE" :
+    x = input("Input (DONE = exit): ")
+    if x != "DONE" :
+        try :
+            a,b = x.split()
+            if not a.isnumeric() :
+                print("Invalid input")
+            else :
+                d[a] = int(b)
+        except:
+            print("Invalid input")
+print("Output: ")
+for i,k in d.items():
+  print(i,k)
+# ===== Q7 =====
+k = []
+z = []
+a = input("Input sequence1: ").split()
+b = input("Input sequence2: ").split()
+for i in a :
+    if i.isnumeric() :
+        k.append(i)
+for j in b :
+    if j.isnumeric() :
+        z.append(j)
+z = set(z)
+k = set(k)
+if len(set(k).intersection(set(z))) != 0 :
+    print("Output: True")
+else :
+    print("Output: False")
