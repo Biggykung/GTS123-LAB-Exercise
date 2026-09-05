@@ -1,7 +1,0 @@
-print("Group Name: Hate Python")
-print("-----------------------")
-print("1: 6722782057 KITTIPONG SUWANNAROJ")
-print("2: 6722782065 RATTIMA SINTARA")
-print("3: 6722782073 PANNAWIT TANGRATKHANA")
-print("4: 6722782107 PHASU CHINTAWORN")
-print("5: 6722782149 CHANITA LOACHARIYAKUL")
