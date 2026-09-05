@@ -1,0 +1,27 @@
+import numpy as np
+x = 0
+n = 1
+l = []
+while x != "end":
+    x = input("P%d: " % (n)).strip()
+    if x.lower() == "end":
+        break
+    # Check if input has exactly 3 numeric components
+    parts = x.split(" ")
+    if len(parts) == 3 and all(p.replace('.', '', 1).replace('-', '', 1).isdigit() for p in parts):
+        # Add the valid point to the list
+        l.append([float(p) for p in parts])
+        n += 1
+# Adjust n to count only valid points
+n = len(l)
+if n < 2:
+    print("There are fewer than two points. There is no distance output.")
+else:
+    print(f"There are {n} points in total.")
+    total_distance = 0
+    for i in range(n - 1):
+        # Calculate distance between consecutive points
+        distance = np.linalg.norm(np.array(l[i]) - np.array(l[i + 1]))
+        total_distance += distance
+        print(f"P{i + 1} -> P{i + 2} = {distance:.2f}")
+    print(f"Total distance is {total_distance:.2f} units.")
