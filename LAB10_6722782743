@@ -67,3 +67,17 @@ sorted_ss = np.sort(sumsale)
 argsort_ss = np.argsort(sumsale)
 for i in range(data.shape[0]) :
     print("Branch %d --> %.2f" %(branch[argsort_ss[-1-i]], sorted_ss[-1-i]))
+# ===== Q5 =====
+import numpy as np
+matp = []
+for i in range(3) :
+    xyz = input("Input coordinates of P%d: " % (i+1)).split()
+    if len(xyz) == 3 :
+        matp.append(xyz)
+matp = np.array(matp)
+matp = matp.astype(float)
+# print(matp)
+A = matp[:]
+B = matp[[1,2,0]]
+cdist = np.max(np.sqrt(np.sum((A-B)**2,axis=1)))
+print("Output:\nThe longest distance = %.2f" % cdist)
