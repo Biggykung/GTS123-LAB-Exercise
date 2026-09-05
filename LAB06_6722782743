@@ -1,0 +1,146 @@
+# ===== Q1 =====
+x = input("Input : ").split(",")
+print(x)
+for i in x :
+    for j in x :
+        for k in x :
+            if i != j :
+                print(i,j,k)
+# ===== Q2 =====
+x = input("Input: ").split(",")
+print(x)
+m = []
+for i in x :
+    for j in x:
+        for k in x:
+            if (i != j and j != k and k != i) :
+                s = sorted([i,j,k])
+                if not s in m :
+                    print(i,j,k)
+                    m.append(s)
+# ===== Q3 =====
+l = []
+for i in range(1,6) :
+    Input = input("Input#%d : " %(i))
+    l.append(int(Input))
+opt = input("Select the option: 1) Summary, 2) average, 3) min, 4) max ....")
+if opt.isnumeric() :
+    opt = int(opt)
+    if opt == 1 or opt == 2 or opt == 3 or opt == 4:
+        if opt == 1 :
+            r = sum(l)
+            print("Your result is %d" %r)
+        elif opt == 2 :
+            r = sum(l)/5
+            print("Your result is %.0f" %r)
+        elif opt == 3 :
+            r = min(l)
+            print("Your result is %d" %r)
+        elif opt == 4 :
+            r = max(l)
+            print("Your result is %d" %r)
+    else :
+        print("Error")
+else :
+      print("Error")
+# ===== Q4 =====
+namelist = ["Hello1","Ant1","Cat1","Bat1","Hello","Ant","Cat","Bat"]
+for i in range(100) :
+    print("Student list:", namelist)
+    x = input("Please enter a student's name that you want to delete (q = exit): ")
+    if x == 'q' :
+        break # exit from current loop
+    else :
+        print("You will remove '%s' from this class." % x)
+        c = input("Please type (Confirm 'y') , Cancel 'n'): ")
+        if c == 'y' :
+            if x in namelist:
+                namelist.remove(x)
+            else :
+                print("There is no '%s' in this class." %x)
+    print() 
+# ===== Q5 =====
+p = input("how many persons in a group? : ")
+p = int(p)
+k = []
+m = []
+n = []
+print("please enter grade from group A")
+for i in range(1,p+1) :
+    gpa1 = input("enter grade: ")
+    k.append(float(gpa1))
+print("please enter grade from group B")
+for i in range(1,p+1) :
+    gpa2 = input("enter grade: ")
+    m.append(float(gpa2))
+print("please enter grade from group C")
+for i in range(1,p+1) :
+    gpa3 = input("enter grade: ")
+    n.append(float(gpa3))
+a = max(k)
+b = max(m)
+c = max(n)
+print("the highest grade of group A is %.1f" %(a))
+print("the highest grade of group B is %.1f" %(b))
+print("the highest grade of group C is %.1f" %(c))
+# ===== Q6 =====
+day = input("Enter dd//mm//yyyy: ")
+if len(day) < 8 or len(day) > 8 :
+    print("Please enter 8 digits!!")
+else :
+    D = day[0:2]
+    M = day[2:4]
+    Y = day[4:]
+    if 0 > int(D) or int(D) >= 31 :
+        print("Error! There\'re 31 days")
+    elif  0 > int(M) or int(M) >= 12  :
+        print("Error! There\'re 12 months")
+    else :   
+        print("Date = %s" %(D))
+        M = int(M)
+        print("Month = %d" %(M))
+        Y = int(Y)
+        Y = Y-543
+        print("Year = %s" %(Y))
+# ===== Q7 =====
+import random as r 
+m = []
+for i in range(1,5) :
+    str = input("Enter string#%d:" %(i))
+    m.append(str)
+
+print()
+r.shuffle(m)
+outtext2 = " ".join(m)
+print("Random order of sentence:%s" %(outtext2))
+# ===== Q8 =====
+st = input("Enter a string: ")
+o = ""
+for i in st :
+    if i.isalpha() or " ":
+        if i.islower() :
+            i = i.upper()
+        elif i.isupper() :
+            i = i.lower()
+        else :
+            i = i
+    o = o + i
+print("Reverse string output: %s" %(o))
+# ===== Q9 =====
+a = [1,1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+b = [1,2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+m = []
+for i in a :
+    for j in b :
+        if i == j :
+            if not i in m :
+                m.append(i)
+print(m)
+# ===== Q10 =====
+print("List of fruits: ['Apple', 'Banana', 'Orange', 'Grape','Mango', 'Kiwi']")
+list = ['Apple', 'Banana', 'Orange', 'Grape','Mango', 'Kiwi']
+for i in list :
+    if len(i) < 6 :
+        print("%s is only %d long!" %(i,len(i)))
+    else :
+        print("%s is 6 characters or more!" %(i))
