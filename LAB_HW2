@@ -1,0 +1,33 @@
+Start_num = input("Start number: ")
+End_num = input("End number: ")
+Step_num = input("Step number: ")
+s = 0
+prime_count = 0
+output = "Numbers: "
+if Start_num.isnumeric() and End_num.isnumeric() and Step_num.isnumeric():
+    Start_num, End_num, Step_num = int(Start_num), int(End_num), int(Step_num)
+    if Start_num >= 1 and End_num > Start_num and Step_num >= 1:
+        for i in range(Start_num, End_num + 1, Step_num):
+            s += 1
+            if i > 1:  
+                is_prime = True
+                for j in range(2, int(i ** 0.5) + 1):  
+                    if i % j == 0:
+                        is_prime = False  
+                if is_prime:
+                    output += str(i) + "*"
+                    prime_count += 1
+                else:
+                    output += str(i)
+            else:
+                output += str(i)
+
+            if i + Step_num <= End_num:
+                output += ", "
+        print("Starting from %d and ending at %d with a step of %d, there are a total of %d numbers." % (Start_num, End_num, Step_num, s))
+        print("Among them, %d are prime." % prime_count)
+        print(output)
+    else:
+        print("Input ERROR!!")
+else:
+    print("Input ERROR!!")
