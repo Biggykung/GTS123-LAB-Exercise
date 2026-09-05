@@ -1,0 +1,102 @@
+# ===== Q1 =====
+import numpy as np
+import matplotlib.pyplot as plt
+import math as m
+x = np.arange(-3*m.pi,3*m.pi,0.1)
+y1 = np.sin(x)
+y2 = np.sin(x + 0.5)
+y3 = np.sin(x + 1)
+y4 = np.sin(x + 1.5)
+plt.plot(x,y1, color='blue',linewidth=1,linestyle="dotted")
+plt.plot(x,y2, color='green',linewidth=1,linestyle="dashed")
+plt.plot(x,y3, color='orange',linewidth=1,linestyle="dashdot")
+plt.plot(x,y4, color='pink',linewidth=1)
+plt.xlim(-3*m.pi,3*m.pi)
+plt.show()
+# ===== Q2 =====
+import numpy as np
+import matplotlib.pyplot as plt
+x = np.arange(0.1,10.1,0.1)
+y = (1+x)/np.sqrt(x)
+plt.plot(x,y, color='black',linewidth=1)
+plt.xlim(0,10)
+plt.show()
+# ===== Q3 =====
+import math
+h = input("Enter the pentagon height:")
+h = float(h)
+a = (2*h)/(math.sqrt(5+2*(math.sqrt(5))))
+A = ((a**2)*math.sqrt(25+10*(math.sqrt(5))))/4
+P = 5*a
+print("The length for one side of the pentagon is %.4f." %a)
+print("The pentagon area and perimeter are %.4f and %.4f." %(A,P))
+# ===== Q4 =====
+import math as m
+x1 = input("Enter coordinate X for P1:")
+y1 = input("Enter coordinate Y for P1:")
+x2 = input("Enter coordinate X for P2:")
+y2 = input("Enter coordinate Y for P2:")
+x1,y1,x2,y2 = float(x1),float(y1),float(x2),float(y2)
+D = m.sqrt((x1-x2)**2+(y1-y2)**2)
+C = m.pi*D
+A = m.pi*((D/2)**2)
+print("The length of the circle diameter is %.4f." %D)
+print("The circle area and circumference are %.4f and %.4f." %(A,C))
+# ===== Q5 =====
+import math as m
+d = input("Enter the sphere diameter:")
+d = float(d)
+r = d/2
+V = (4/3)*m.pi*(r**3)
+A = 4*m.pi*(r**2)
+print("The length of the sphere radius is %.4f." %r)
+print("The sphere volume and the surface area are %.4f and %.4f." %(V,A))
+# ===== Q6 =====
+import math as m
+d = input("Enter the distance to the building:")
+a = input("Enter the elevation angle in degree:")
+d,a = float(d),float(a)
+h = d*m.tan(m.radians(a))
+print("The building height is %.4f." %h)
+# ===== Q7 =====
+import random as r
+otp = ""
+otp += str(r.randint(8,9))
+otp += str(r.randint(6,7))
+otp += str(r.randint(4,5))
+otp += str(r.randint(2,3))
+otp += str(r.randint(0,1))
+print("Your OTP is %s. This password will be expired within 5 minutes." %otp)
+# ===== Q8 =====
+text = input("Input a word:")
+text = str(text)
+print("The input word is \"%s\"." %text)
+print("1.",text.capitalize())
+print("2.",text.upper())
+print("3.",text.isnumeric())
+print("4.",text.isalpha())
+print("5.",text.isupper())
+# ===== Q9 =====
+import math
+w1 = input("Enter the width of the cube:")
+w2 = input("Enter the width of the container:")
+h = input("Enter the height of the container:")
+d = input("Enter the depth of the container:")
+w1,w2,h,d = float(w1),float(w2),float(h),float(d)
+cube_w = math.floor(w2/w1)
+cube_h = math.floor(h/w1)
+cube_d = math.floor(d/w1)
+number = cube_w*cube_h*cube_d
+print("The number of cubes that can fit into the container is %d" %number)
+# ===== Q10 =====
+import math as m
+ab = input("Input the covered area for one paint bottle (cm square):")
+ns = input("Input the number of the spheres:")
+sr = input("Input the radius of each sphere (cm):")
+ab = float(ab)
+ns = int(ns)
+sr = float(sr)
+sphere_area = 4*m.pi*(sr**2)
+total_sphere_area = sphere_area*ns
+bottles = m.ceil(total_sphere_area/(ab))
+print("The paint bottles are needed to paint the surface of spheres is %d" %(bottles))
