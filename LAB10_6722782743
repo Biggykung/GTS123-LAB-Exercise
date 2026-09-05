@@ -1,0 +1,69 @@
+# ===== Q1 =====
+import numpy as np
+size = int(input("Input size of matrix: "))
+z = []
+for i in range(1,size+1) :
+    for j in range(1,size+1) :
+        if i <= size and j <= size :
+            k = float(input("Input element at row %d column %d: " %(i,j)))  
+            z.append(k)
+        else :
+            print("Error")
+print("Output:")
+y = np.array(z)
+w = np.reshape(y,(size,size))
+print("Matrix = ")
+print(w)
+a = np.linalg.det(w)
+print("Determinant = %.1f" %(a))
+if a != 0:  
+    c = np.linalg.inv(w)
+    print("Inverse matrix =")
+    print(c)
+else:
+    print("Matrix is singular, inverse cannot be calculated.")
+# ===== Q2 =====
+import numpy as np
+member = []
+xyz = []
+for i in range(1,13):
+    cn = int(input("Input C%d: " %i))
+    if i != 4 and i != 8 and i != 12:
+        member.append(cn)
+    else:
+        xyz.append(cn)
+matrix = np.array(member)
+xyz = np.array(xyz)
+matrix = np.reshape(matrix, (3,3))
+if np.linalg.det(matrix) != 0:
+    inv = np.linalg.inv(matrix)
+else:
+    print("Unable to find  solution")
+xyz = np.matmul(inv,xyz)
+print("Solution")
+print("x = %.2f" %xyz[0])
+print("y = %.2f" %xyz[1])
+print("z = %.2f" %xyz[2])
+# ===== Q3 =====
+import numpy as np
+data = np.loadtxt('grades.tsv',delimiter='\t',dtype=str)
+c0 = data[:,0]
+c1m = data[:,1:]
+c1m = c1m.astype(float)
+# print(c0,c1m)
+p = [3,2,1,3,3,3]
+c1m = np.sum(c1m*p,axis=1)/np.sum(p)
+# print(c1m)
+print("%-15s%-5s" % ("Staudent ID","GPA"))
+for i in range(c0.shape[0]) :
+    print("%-15s%-5.2f" % (c0[i],c1m[i]))
+# ===== Q4 =====
+import numpy as np
+data = np.loadtxt('sales - Sheet1.tsv',delimiter='\t',dtype=float)
+branch = data[:,0]
+sale = data[:,1:]
+sumsale = np.sum(sale,axis=1)
+sorted_ss = np.sort(sumsale)
+argsort_ss = np.argsort(sumsale)
+for i in range(data.shape[0]) :
+    print("Branch %d --> %.2f" %(branch[argsort_ss[-1-i]], sorted_ss[-1-i]))
