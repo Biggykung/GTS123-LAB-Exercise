@@ -1,0 +1,47 @@
+from operator import itemgetter
+coffeeDB = [['A','Americano',120],['M','Matcha Latte',125],['C','Signature Chocolate',130],['E','Espresso',50],['O','Sai Nam Pueng Orange Juice',95],['R','Iced Raspberry Juice Tea',115]]
+menusorted = sorted(coffeeDB, key=itemgetter(2), reverse=True)
+print("Beverage Menu")
+print("-" * 56)
+print("| %-3s | %-4s | %-30s | %-6s |" % ("No.", "Code", "Item Name", "Price"))
+print("-" * 56)
+for i, val in enumerate(menusorted):
+    print("| %2d. | %-4s | %-30s | %6.2f |" % (int(i + 1), val[0], val[1], val[2]))
+print("-" * 56)
+userorder = input("User's orders: ")  
+menucode = [i[0] for i in coffeeDB] 
+summ_item = []  
+for a in userorder:
+    if a.upper() in menucode:  
+        found = -1
+        for i, b in enumerate(summ_item):
+            if b[0] == a.upper():
+                found = i
+        if found >= 0:
+            summ_item[found][1] += 1  
+        else:
+            summ_item.append([a.upper(), 1])  
+    else:
+        print("skipping NOCODE (%s)" %a) 
+if len(summ_item) > 0:
+    print("Bill summary")
+    print("-" * 56)
+    print("| %-3s | %-30s | %-4s | %-6s |" % ("NO.", "ITEM NAME", "QTY", "AMOUNT"))
+    print("-" * 56)
+    total = 0
+    for i, val in enumerate(summ_item):
+        menudetail = [[d[1], d[2]] for d in coffeeDB if val[0] == d[0]]
+        menuprice = menudetail[0][1]
+        qty = val[1]
+        amount = menuprice * qty
+        total += amount
+        print("| %2d. | %-30s | %4d | %6.2f |" % (i + 1, menudetail[0][0], qty, amount))
+    print("-" * 56)
+    vat = total * 0.07
+    grand_total = total + vat
+    print("| %-43s | %6.2f |" % ("Subtotal", total))
+    print("| %-43s | %6.2f |" % ("Total tax", vat))
+    print("| %-43s | %6.2f |" % ("Total", grand_total))
+    print("-" * 56)
+else:
+    print("NO ORDER!!!")
