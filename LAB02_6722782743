@@ -1,1 +1,118 @@
-
+# ===== Q1 =====
+chocolate=input("Enter amount of melted chocolate to be poured into the cup (ml):")
+milk=input("Enter amount of milk to be poured into the cup (ml):")
+chocolate=float(chocolate)
+milk=float(milk)
+mililitre=chocolate+milk
+ounce=(chocolate+milk)*0.0338
+print("Now Emmy's cup is filled with %.2f ml (or about %.2f oz) of chocolate milk." % (mililitre,ounce))
+# ===== Q2 =====
+x = input("Enter x: ")
+y = input("Enter y: ")
+x=float(x)
+y=float(y)
+Area_of_triangle = (1/2)*x*(y-0.8*y)
+Area_of_rectangle = 0.8*y*(x/2)
+TOTAL_AREA = Area_of_triangle + Area_of_rectangle
+print("Total area of the shape is %.2f square units." %(TOTAL_AREA))
+# ===== Q3 =====
+Radius = input("Input Radius (cm) =")
+Height = input("Input Height (cm) =")
+Radius=float(Radius)
+Height=float(Height)
+Volume = 3.1415926535*(Radius**2)*Height
+print("The volume of cylinder is %.5f cubic centimeter" % Volume)
+# ===== Q4 =====
+Full_Score=input("Input Full Score =")
+Real_Score=input("Input Real Score =")
+Full_Score=float(Full_Score)
+Real_Score=float(Real_Score)
+Percentage=(Real_Score/Full_Score)*100 
+print("----------------------------")
+print("--- Calculate Percentage ---")
+print("----------------------------")
+print("Full Score : %.2f" %Full_Score)
+print("Real Score : %.2f" %Real_Score)
+print("----------------------------")
+print("Percentage : %.2f%%" % Percentage)
+# ===== Q5 =====
+integer=input("Enter a four-digit integer:")
+integer=int(integer)
+result1=integer//100
+result2=integer%100
+result3=result1+result2
+result4=result1-result2
+result5=result1//result2
+result6=result1%result2
+print("The result of %d + %d = %d" %(result1,result2,result3))
+print("The result of %d - %d = %d" %(result1,result2,result4))
+print("The integer value of %d/%d = %d" %(result1,result2,result5))
+print("The remainder of %d/%d = %d" %(result1,result2,result6))
+# ===== Q6 =====
+a=input("Enter the 1st integer: ")
+b=input("Enter the 2nd integer: ")
+c=input("Enter the 3rd integer: ")
+a,b,c=float(a),float(b),float(c)
+average=(a+b+c)/3
+summation=(a+b+c)
+multiplication=(a*b*c)
+print("a,b,c = %.2f,%.2f,%.2f" %(a,b,c))
+print("The average of three integers = %.2f" %(average))
+print("The summation of three integers = %.2f" %(summation))
+print("The multiplication of three integers = %.2f" %(multiplication))
+# ===== Q7 =====
+weight=input("Enter your weight in kg.: ")
+height=input("Enter your height in cm.: ")
+weight=float(weight)
+height=float(height)
+pounds=weight*2.20462262
+feet=height*0.032808399
+print("Your weight in pounds = %.2f" %pounds)
+print("Your height in feet = %.2f" %feet)
+# ===== Q8 =====
+integer1=input("Enter the first integer number:")
+integer2=input("Enter the second integer number:")
+integer1=int(integer1)
+integer2=int(integer2)
+sum=integer1+integer2
+difference=integer1-integer2
+product=integer1*integer2
+quotient=integer1//integer2
+print("The sum is %d" %sum)
+print("The difference is %d" %difference)
+print("The product is %d" %product)
+print("The quotient is %d" %quotient)
+# ===== Q9 =====
+integer1=input("Enter the first number:")
+integer2=input("Enter the second number:")
+integer3=input("Enter the third number:")
+integer4=input("Enter the first number:")
+integer5=input("Enter the second number:")
+integer6=input("Enter the third number:")
+integer1=int(integer1)
+integer2=int(integer2)
+integer3=int(integer3)
+integer4=int(integer4)
+integer5=int(integer5)
+integer6=int(integer6)
+print("Enter the first number: %d" %integer1)
+print("Enter the second number: %d" %integer2)
+print("Enter the third number: %d" %integer3)
+print("Enter the first number: %d" %integer4)
+print("Enter the second number: %d" %integer5)
+print("Enter the third number: %d" %integer6)
+print("Reverse order of %d %d %d %d %d %d --> %d %d %d %d %d %d" %(integer1,integer2,integer3,integer4,integer5,integer6,integer6,integer5,integer4,integer3,integer2,integer1))
+# ===== Q10 =====
+ITS100=input("enter grade from ITS100:")
+EL171=input("enter grade from EL171:")
+SCS183=input("enter grade from SCSA183:")
+ITS100=float(ITS100)
+EL171=float(EL171)
+SCS183=float(SCS183)
+GPA=(ITS100*3+EL171*3+SCS183*1)/7
+print(">>> =============================== RESTART ===")
+print(">>>")
+print("enter grade from ITS100: %.1f" %ITS100)
+print("enter grade from EL171: %.1f" %EL171)
+print("enter grade from SCS183: %.1f" %SCS183)
+print("Your GPA is %.2f" %GPA)
