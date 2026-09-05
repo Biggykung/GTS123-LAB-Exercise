@@ -1,0 +1,187 @@
+# ===== Q1 =====
+print(">>> =============================== RESTART ===============================")
+print(">>>")
+print("=======Welcome to Hi!! Car Wash==========")
+Service = input("Choose your services: W=Wash C=Wash+Vacuum >>> ")
+if Service == "W" :
+    Size = input("Enter your car size: \"S\" , \"M\" , \"L\" : " )
+    if Size == "S" :
+        print("Price = 100 Baht")
+    elif Size == "M" :
+        print("Price = 120 Baht")    
+    elif Size == "L" :
+        print("Price = 140 Baht")
+    else :
+        print("You Enter the wrong car size")
+elif Service == "C" :
+    Size = input("Enter your car size: \"S\" , \"M\" , \"L\" : " )
+    if Size == "S" :
+        print("Price = 120 Baht")
+    elif Size == "M" :
+        print("Price = 140 Baht")    
+    elif Size == "L" :
+        print("Price = 160 Baht")
+    else :
+        print("You Enter the wrong car size") 
+else :
+    print("Please Choose Your Services")  
+print(">>>")  
+# ===== Q2 =====
+print(">>> =============================== RESTART ===============================")
+print(">>>")
+print("Fever Sympyoms Advisor Program")
+x = float(input("Check your body temperature in F = "))
+if (x >= 100.4):
+    print("You got a fever.")
+    y = int(input("Choose your treatment: 1 - medication 2 = no medication >>> "))
+    if (y==1):
+        print("Take Tylenol every 4 hours are needed")
+    elif (y==2):
+        print("Taking a bath in lukewarm or get the cool packs")
+    elif(y==3):
+        print("You choose the wrong choice")
+else:
+    print("You are fine")
+# ===== Q3 =====
+d = input("Input number of days: ")
+h = input("Input number of hours: ")
+d = int(d)
+h = int(h)
+m = ((d * 24) + h) * 60
+print("Please select a choice:")
+print("1-to calculate the total number of seconds or")
+print("2-to calculate the total number of minutes:")
+c = input("Enter your selected choice: ")
+print("--------------------------------------------------")
+if (c == "1") :
+    print("The total number of seconds are %d." %(m*60))
+elif (c == "2") :    
+    print("The total number of minutes are %d." %(m))
+# ===== Q4 =====
+l = input("Enter a single letter: ")
+if (l == "A" or l == "B" or l == "C"):
+    print("The digit 2 corresponds to the letter %s on the telephone" %l)
+elif (l == "D" or l == "E" or l == "F"):
+    print("The digit 3 corresponds to the letter %s on the telephone" %l)
+elif (l == "G" or l == "H" or l == "I"):
+    print("The digit 4 corresponds to the letter %s on the telephone" %l)
+elif (l == "J" or l == "K" or l == "L"):
+    print("The digit 5 corresponds to the letter %s on the telephone" %l)
+elif (l == "M" or l == "N" or l == "O"):
+    print("The digit 6 corresponds to the letter %s on the telephone" %l)
+elif (l == "P" or l == "R" or l == "S"):
+    print("The digit 7 corresponds to the letter %s on the telephone" %l)
+elif (l == "T" or l == "U" or l == "V"):
+    print("The digit 8 corresponds to the letter %s on the telephone" %l)
+elif (l == "W" or l == "X" or l == "Y"):
+    print("The digit 9 corresponds to the letter %s on the telephone" %l)
+else:
+    print("There is no digit on the telephone that coresponds to %s." %l)
+# ===== Q5 =====
+m =int(input("Please specify amount of money you would like to withdraw:"))
+print("we may give you: ")
+b500 = m // 500
+m %= 500 
+b100 = m // 100
+m %= 100 
+b50 = m // 50
+m %= 50
+c2 = m // 2
+m %= 2
+c1 = m // 1
+m %= 1
+print("%d bill(s) of 500 bath" % b500)
+print("%d bill(s) of 100 bath" % b100)
+print("%d bill(s) of 50 bath" % b50)
+print("%d coin(s) of 2 bath" % c2)
+print("%d coin(s) of 1 bath" % c1)
+# ===== Q6 =====
+x = float(input("Input x = "))
+y = float(input("Input y = "))
+x1 = 0.0
+y1 = 0.0
+x2 = 2.0
+y2 = 0.0
+x3 = 1.0
+y3 = 2.0
+div = (((y2-y3)*(x1-x3))+((x3-x2)*(y1-y3)))
+a = (((y2-y3)*(x-x3))+((x3-x2)*(y-y3))) / div
+b = (((y3-y1)*(x-x3))+((x3-x2)*(y1-y3))) / div
+g = 1 - a - b
+if (a > 0 and b > 0 and g > 0):
+    print("Point(x,y) inside polygon")
+else:
+    print("Point(x,y) outside polygon")
+# ===== Q7 =====
+x = int(input("Enter money you have:"))
+y = int(input("Enter price of item:"))
+tax = 0.08*y
+print("Tax:",tax)
+total_price = tax + y
+sb = total_price - x
+print("Total price:",total_price)
+if (x >= total_price):
+    print("yes you have enogh money to buy")
+else:
+    print("You have shortfall of %d, you cannot buy" %sb)
+# ===== Q8 =====
+print("Welcome to pizza online ordering.")
+print("please input \"y\" if you want to order, otherwise input \"n\" ")
+Pizza = input("Pizza? (price_359) : ")
+if Pizza == "y" :
+    Price1 = 359 
+elif Pizza == "n" :
+    Price1 = 0
+Chicken = input("Chicken? (price_3 pieces for 199) : ")
+if Chicken == "y" :
+    Price2 = 199 
+elif Chicken == "n" :
+    Price2 = 0   
+Pasta = input("Pasta? (price_99) : ")
+if Pasta == "y" :
+    Price3 = 99 
+elif Pasta == "n" :
+    Price3 = 0  
+Salad = input("Salad? (price_99) : ")
+if Salad == "y" :
+    Price4 = 99 
+elif Salad == "n" :
+    Price4 = 0  
+Coke = input("Coke? (price_550 ml for 25) : ")
+if Coke == "y" :
+    Price5 = 25 
+elif Coke == "n" :
+    Price5 = 0  
+total_price = Price1 + Price2 + Price3 + Price4 + Price5
+print("total price is %d" %(total_price))
+print("thanks")
+# ===== Q9 =====
+import math as m
+Time = int(input("Input parking time (in minutes) : "))
+Time = int(Time)
+if (Time % 60) <= 15 :
+    Fee = (20)*(Time//60)
+elif (Time % 60) > 15 :
+    Fee = (20)*(m.ceil(Time/60))
+print("The charge is %d baht." %(Fee))
+# ===== Q10 =====
+print("Welcome to Income Tax Computation Program")
+income = input("Please enter your income (THB): ")
+income = float(income)
+
+if  (income >= 0):
+    step1 = 35000*5/100
+    step2 = 50000*7.5/100
+
+    tax = 0
+
+    if income > 100000:
+        tax = ((income - 100000) * 10/100) + step2 + step1
+    elif income > 50000:
+        tax = ((income - 50000) * 7.5/100) +step1
+    elif income > 15000:
+        tax = ((income - 15000) * 5/100)
+    print("Tax expenxe = %.2f" %(tax))
+    print("Your net income after tax = %.2f" % (income-tax))
+else:
+    print("You are in debt!")
