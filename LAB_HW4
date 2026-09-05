@@ -1,0 +1,24 @@
+numbers = []
+total_sum = 0.0
+
+while True:
+    user_input = input("Numbers: ").strip()
+    if user_input == "EXIT":
+        print("Exit without summary.")
+        break
+    if " " in user_input:
+        continue
+    try:
+        num = float(user_input)
+        numbers.append(num)
+        total_sum += num
+        if total_sum > 1000:
+            break
+    except ValueError:
+        continue
+if total_sum > 1000:
+    print("----------")
+    sorted_numbers = sorted(numbers)
+    formatted_numbers = ", ".join(f"{n:.2f}" for n in sorted_numbers)
+    print(formatted_numbers)
+    print(f"sum = {total_sum:.2f}")
