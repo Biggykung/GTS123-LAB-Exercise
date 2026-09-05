@@ -1,0 +1,186 @@
+# ===== Q1 =====
+b = float(input("Enter the initial balance:"))
+x= ""
+while True:
+    x = input("Transaction type and amount (\"done 0\" to exit):")
+    if x == "done 0":
+        print("> Current balance = %.0f THB" %b)
+        break
+    try: 
+        t, v = x.split()
+        v = float(v)
+    except: 
+        print("> Invalid transaction!")
+        continue 
+    if v <= 0:
+        print("> Invalid transaction!") 
+        continue
+    if t == 'D':
+        b += v
+        print("Deposit = %.0f THB, current balance = %.0f THB"%(v,b))
+    elif t == 'W':
+        if v <= b:
+            b -= v
+            print("> Withdrawal = %.0f THB, current balance = %.0f THB" %(v,b))
+        else:
+            print("> Invalid transaction!")
+            continue
+    else: 
+        print("> Invalid transaction!")
+# ===== Q2 =====
+from operator import itemgetter
+def report(a):
+    print("List:")
+    if len(a) > 0:
+        b = sorted(a.items(), key=itemgetter(1), reverse=True)
+        for r in b:
+            print("%-10s %3.0f" % (r[0], r[1]))
+    else:
+        print("> empty list!")
+d = {}
+while True:
+    x = input("Enter student name and score: ")
+    if x == 'end 0' or x == 'end':
+        break
+    try:
+        name, score = x.split()
+        score = float(score)
+    except:
+        print("Invalid input!")
+        continue
+    if score < 0 or score > 100:
+        print("Invalid score!")
+        continue
+    if name in d:
+        print("Duplicate name!")
+        continue
+    else:
+        d[name] = score
+report(d)
+# ===== Q3 =====
+c = 0
+ap = 0
+while c != "done 0" :
+    c = input("Command: ")
+    b = c.split(" ")
+    if (("R" in b) or ("P" in b)) and int(b[1]) > 0 :
+        if (not "R" in b) and ("P" in b) :
+            ap += int(b[1])
+            print("You earned %d points" %(int(b[1]))) 
+            print("Your accumulated points = %d points" %(ap))
+        elif ("R" in b) and (not "P" in b) :
+            if int(b[1]) > ap :
+                print("Not enough points")
+            else :
+                ap -= int(b[1])
+                print("You redeemed %d points" %(int(b[1])))
+                print("Your accumulated points = %d points" %(ap))
+    elif b[1] == "0" and b[0] == "done":
+        print()
+    elif not ("R" or "P") in b or int(b[1]) < 0:
+        print("Invalid command")
+# ===== Q4 =====
+def main():
+    players = {}
+    while True:
+        inp = input("Input: ").strip()
+        if inp.lower() == 'done':
+            if not players:
+                print("No players")
+                break
+            else:
+                total_score = sum(players.values())
+                avg_score = total_score / len(players)
+                sorted_players = sorted(players.items(), key=lambda x: x[1], reverse=True)
+                for i, (name, score) in enumerate(sorted_players):
+                    if i == 0:
+                        print(f"{name}\t{score}\tGold")
+                    elif score > avg_score:
+                        print(f"{name}\t{score}\tSilver")
+                    else:
+                        print(f"{name}\t{score}")
+                break
+        else:
+            parts = inp.split()
+            if len(parts) != 2:
+                print("Invalid input")
+                continue
+            name, score_str = parts
+            try:
+                score = int(score_str)
+                if score < 0:
+                    print("Invalid input")
+                    continue
+                if name in players:
+                    print("Duplicated player")
+                else:
+                    players[name] = score
+            except ValueError:
+                print("Invalid input")
+if __name__ == "__main__":
+    main()
+# ===== Q5 =====
+x = ""
+while True:
+    x = input("Enter an integer number (0 to exit):")
+    try: 
+        x = int(x)
+    except: 
+        continue
+
+    if x ==0: 
+        print("Exit program. Bye!")
+        break
+    elif x > 9 or x <0:
+        print("Valid value is between 0 and 9!")
+        break
+    else:
+        for i in range (1, x+1):
+            t1 = " " * (x-i)
+            t2 = ((str(x)+" ") * i).strip()
+            print(t1 + t2)
+        print()
+# ===== Q6 =====
+from operator import itemgetter
+x = ""
+d = {}
+while x != "done 0" :
+    x = input("Enter student ID and score: ")
+    if x != "done 0" :
+        a,b = x.split(" ")
+        if (not a.isnumeric()) :
+            print("Invalid ID format!")
+        elif  (len(a) < 4 or len(a) > 4) :
+            print("Invalid ID format!")
+        elif a in d:
+            print("The ID is already recorded!")
+        elif int(b) < 0 :
+            print("Invalid score!")
+        else :
+            d[a] = int(b)
+print("List: ")
+k = sorted(d.items(),key=itemgetter(1),reverse=True)
+k = dict(k)
+if k != {} :
+    for i,v in k.items():
+        print(i,v)
+else :
+    print("> no score is recorded!")
+# ===== Q7 =====
+import numpy as np 
+l = []
+while len(l) != 9:
+    x = input("Input:")
+    if x == 'o' or x == 'x':
+        l.append(x)
+    else:
+        print("Wrong input")
+        continue
+k = np.array(l).reshape((3, 3))
+print("-" * 7)
+for i in range(3):
+    print("", end="|")
+    for j in range(3):
+        print(k[i, j], end="|")
+    print()
+    print("-" * 7)
