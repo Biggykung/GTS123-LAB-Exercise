@@ -1,0 +1,157 @@
+# ===== Q1 =====
+even,odd = 0,0
+for i in range(1,6,1):
+    input("enter a number ")
+    if i % 2 == 0 :
+        even += 1
+    elif i % 1 == 0:
+        odd += 1
+print("there were %d even numbers" %even)
+print("there were %d even numbers" %odd)
+# ===== Q2 =====
+sum = 0
+for i in range(5):
+    number=int(input("Enter an integer #%d: " %(i+1)))
+    sum += number
+print("The summation is ", sum)
+# ===== Q3 =====
+print(">>>","-"*44,"RESTART","-"*44)
+print(">>>")
+print("Multiplication table:")
+n = int(input("Please enter a number between 1 to 25:"))
+if 1 <= n <= 25 :
+    print("Multiplication of %d : " %(n))
+    for i in range(n,n+1,1):
+        for j in range(1,13):
+            print(i,"x",j,"=",i*j)
+else:
+    print("You entered invalid number")
+# ===== Q4 =====
+s = 1
+x = 0
+n = int(input("Enter an integer number (n>0): "))
+print("(1) Factorial of n (n!)\n(2) Summation of n integers")
+option = input("Select operation: ")
+print()
+if option == 1 :
+    for i in range(1,n+1):
+        s *= i
+    print("Factorial of n (n!) =", s)
+elif option == 2 :
+    for j in range(1,n+1):
+        x += j
+    print("Summation of n integers = ")
+else:
+    print("N/A Operation!")
+# ===== Q5 =====
+n = int(input("enter no. of lines: "))
+for i in range(1,n+1):
+    if i % 2 == 1 :
+        print("-"*i)
+    elif i % 2 == 0 :
+        print("*"*i)
+    else :
+        print("Error in input.")
+# ===== Q6 =====
+x = float(input("Input x = "))
+y = float(input("Input y = "))
+x1 = 0.0
+y1 = 0.0
+x2 = 2.0
+y2 = 0.0
+x3 = 1.0
+y3 = 2.0
+div = (((y2-y3)*(x1-x3))+((x3-x2)*(y1-y3)))
+a = (((y2-y3)*(x-x3))+((x3-x2)*(y-y3))) / div
+b = (((y3-y1)*(x-x3))+((x3-x2)*(y1-y3))) / div
+g = 1 - a - b
+if (a > 0 and b > 0 and g > 0):
+    print("Point(x,y) inside polygon")
+else:
+    print("Point(x,y) outside polygon")
+# ===== Q7 =====
+l = 0
+h = 0
+s = 0
+t = 0
+for i in range(1,11,1):
+    F = input("Feeling Like (\"L\"), Sad (\"S\"), and Heart(\"H\")? ")
+    if F == "L" or F == "H" or F == "S" :
+        if F == "L" :
+            l += 1
+            t += 1
+        elif F == "H" :
+            h += 1
+            t += 1
+        elif F == "S" :
+            s += 1
+            t += 1
+    else:
+        print("Invalid input, accepts only (L/S/H).")
+print("============")
+print("Total is ",t)
+print("============")
+r1 = float((l/t)*100)
+r2 = float((s/t)*100)
+r3 = float((h/t)*100)
+print("Like: ",l,"(%.2f%)" %r1)
+print("Sad: ",s,"(%.2f%)" %r2)
+print("Heart: ",h,"(%.2f%)" %r3)
+# ===== Q8 =====
+print("Menu:")
+print("="*44)
+print("A - Americano (50)\nE - Espresso (40)\nG - Green tea (60)")
+n = input("Input: ")
+s = 0
+a,e,g =0,0,0
+for i in n:
+    if i == "A" or i == "E" or i == "G" :
+        if i == "A":
+            a += 1
+            s += 1
+            print(s,".","Americano 50")
+        elif i == "E":
+            e += 1
+            s += 1
+            print(s,".","Espresso 40")
+        elif i == "G":
+            g += 1
+            s += 1
+            print(s,".","Green tea 60")
+        else:
+            s += 0
+            print()
+print("="*44)
+print("Quantity: ",s)
+t = 50*a+40*e+60*g
+vat = (7/100)*(t)
+grand = t+vat
+print("Vat: %.2f" %vat)
+print("Total: %.2f" %t)
+print("Grand total: %.2f" %grand)
+# ===== Q9 =====
+import math as m
+Time = int(input("Input parking time (in minutes) : "))
+Time = int(Time)
+if (Time % 60) <= 15 :
+    Fee = (20)*(Time//60)
+elif (Time % 60) > 15 :
+    Fee = (20)*(m.ceil(Time/60))
+print("The charge is %d baht." %(Fee))
+# ===== Q10 =====
+t = input("Input ")
+correct = 0
+for c in t:
+    if c == "x" or c == "o" or c == '.':
+        correct += 1
+if correct == 0:
+    n=0
+    print("-"*7)
+    for a in t:
+        print("|%s" % a,end="")
+        if n % 3 == 2:
+            print("|")
+            print("."*7)
+        n+=1
+else:
+    print("Error")
