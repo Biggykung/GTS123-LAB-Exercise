@@ -1,0 +1,13 @@
+import math as m
+radius = input("Enter the radius of the capsule (in meters): ")
+height = input("Enter the height of the middle cylinder (in meters): ")
+radius = float(radius)
+height = float(height)
+Sphere_volume = (4/3)*m.pi*(radius**3)
+Cylinder_volume = m.pi*(radius**2)*height
+Total_volume = Sphere_volume+Cylinder_volume
+Sphere_surface_area = 4*m.pi*(radius**2)
+Cylinder_surface_area = 2*m.pi*radius*height
+Total_surface_area = Sphere_surface_area+Cylinder_surface_area
+print("The volume of the capsule is %.4f cubic meters" %(Total_volume))
+print("The surface area of the capsule is %.4f square meters" %(Total_surface_area))
