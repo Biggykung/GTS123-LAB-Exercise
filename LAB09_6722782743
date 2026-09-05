@@ -1,0 +1,177 @@
+# ===== Q1 =====
+import math as m
+x = input("Input a positive number: ")
+x = float(x)
+if x > 0:
+    def CirArea(radius):
+        area = m.pi * (radius ** 2)
+        print("The area of the circle is %.2f" % area)
+    def SqArea(side):
+        area = side * side
+        print("The area of the square is %.2f" % area)
+    CirArea(x)  
+    SqArea(x)   
+else :
+    print("Wrong Input")
+# ===== Q2 =====
+def LeftRotate(x,n):
+    return x[n:] + x[:n]
+def RightRotate(x,n):
+    size = len(x)
+    return x[size-n:] + x[:size-n]
+x = input("Enter 5 inputs: ")
+x = x.split()
+if len(x) == 5:
+    n = input("Enter an integer number of rotations (0-4): ")
+    try:
+        n = int(n)
+    except:
+        n = -1
+else:
+    n = -1
+if n >= 0 and n <= 4:
+    print("The left-rotated list: ",LeftRotate(x,n))
+    print("The right-rotated list: ",RightRotate(x,n))
+    print("The right-rotated list: ",LeftRotate(x[::-1],n)[::-1])
+else:
+    print("Error!")
+# ===== Q3 =====
+def UserInput():
+    xList = []
+    while True:
+        userInput = input("Enter an input: ")
+        if userInput == "Done":
+            break
+        try:
+            num = int(userInput)  
+            if num >= 0:
+                xList.append(num)
+            else:
+                print("Error")
+                return []
+        except ValueError:
+            print("Error")
+            return []
+    return xList
+def SumOut(xList):
+    total = sum(xList)
+    print("The summation is", total)
+
+def MinOut(xList):
+    if xList:
+        minimum = min(xList)
+        print("The minimum is", minimum)
+    else:
+        print("Error: No numbers entered.")
+def MaxOut(xList):
+    if xList:
+        maximum = max(xList)
+        print("The maximum is", maximum)
+    else:
+        print("Error: No numbers entered.")
+xList = UserInput()
+if xList:
+    SumOut(xList)
+    MinOut(xList)
+    MaxOut(xList)
+# ===== Q4 =====
+def UserInput():
+    weight = float(input("Input your weight (kilogram): "))
+    height= float(input("Input your height (meter): "))
+    return height, weight
+def FindBMI(hh, ww):
+    UserBMI = ww / (hh ** 2)  
+    return UserBMI
+def ShowBMI(MyBMI):
+    print("The user BMI is %.2f" %MyBMI)
+height, weight = UserInput()
+bmi = FindBMI(height, weight)
+ShowBMI(bmi)
+# ===== Q5 =====
+def SeatType():
+    while True:
+        seat_type = input("Select the seat type (P or D or H): ").upper()
+        if seat_type in ["P", "D", "H"]:
+            return seat_type
+        else:
+            print("Wrong seat type! Please select again.")
+def MovieType():
+    while True:
+        movie_type = input("Select the movie type (1 or 2): ")
+        if movie_type in ["1", "2"]:
+            return int(movie_type)
+        else:
+            print("Wrong movie type! Please select again.")
+def TicketPrice(seat_type, movie_type):
+    prices = {
+        ("P", 1): 100,
+        ("P", 2): 120,
+        ("D", 1): 140,
+        ("D", 2): 200,
+        ("H", 1): 400,
+        ("H", 2): 500,
+    }
+    price = prices.get((seat_type, movie_type))
+    if price:
+        print("The ticket price is", price)
+seat_type = SeatType()
+movie_type = MovieType()
+TicketPrice(seat_type, movie_type)
+# ===== Q6 =====
+def CelsiusToFahrenheit(c):
+    f = (c * 9/5) + 32
+    return f
+celsius = float(input("Input temperature in degree Celsius: "))
+fahrenheit = CelsiusToFahrenheit(celsius)
+print("The degree in Farenheit is %.2f" %(fahrenheit))
+# ===== Q7 =====
+def TriArea(h,b) :
+    k = 0.5 * h * b
+    return k
+height = float(input("Enter the height (h): "))
+base = float(input("Enter the base (b): "))
+area = TriArea(height,base)
+print("the area of the triangle is %.1f" %(area))
+# ===== Q8 =====
+def myRange(FirstVal, UpperBound, StepSize) :
+    x = list(range(FirstVal, UpperBound, StepSize))
+    return x
+a = input("Enter the first number: ")
+b = input("Enter the upper number: ")
+c = input("Enter the step: ")
+a, b, c = int(a), int(b), int(c)
+print("Range =", myRange(a,b,c))
+# ===== Q9 =====
+from math import pi
+def myCylinder(r, h):
+    V = pi * (r ** 2) * h
+    A = (2 * pi * r * h) + (2 * pi * (r ** 2))
+    return V, A
+radius = float(input("Enter the radius r of the cylinder: "))
+height = float(input("Enter the height h of the cylinder: "))
+volume, area = myCylinder(radius, height)  
+print("The volume is %.2f and the surface area is %.2f" %(volume, area))
+# ===== Q10 =====
+import math
+def CircleArea():
+    r = input("Enter the radius: ")
+    try:
+        r = float(r)
+    except:
+        print("Wrong radius input")
+
+    print("The area of the circle os %.2f" %(math.pi * r ** 2))
+def SquareArea():
+    l = input("Enter the length: ")
+    try:
+        l = float(l)
+        print("The area of the square is %.2f" % (l ** 2))
+    except:
+        print("Wrong length input")
+x = input("Do you eant to find the area of a square (s) or a circle (c)?: ")
+if x.lower() == 'c':
+    CircleArea()
+elif x.lower() == 's':
+    SquareArea()
+else:
+    print("Wrong Input")
